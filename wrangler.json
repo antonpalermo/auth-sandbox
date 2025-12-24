@@ -1,8 +1,8 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "auth-sandbox",
-  "main": "./workers/index.ts",
-  "compatibility_date": "2025-04-03",
+  "main": "workers/index.ts",
+  "compatibility_date": "2025-11-17",
   "assets": {
     "not_found_handling": "single-page-application"
   }
