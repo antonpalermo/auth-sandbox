@@ -1,0 +1,6 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "auth-sandbox",
+  "compatibility_date": "2025-04-03",
+  "main": "./workers/index.ts"
+}
