@@ -1,20 +1,11 @@
-import { Hono } from "hono"
-import { secureHeaders } from "hono/secure-headers"
+import { createApp } from "@workers/libs/create-app"
 
-import { onError } from "@workers/middlewares/on-error"
-import { notFound } from "@workers/middlewares/not-found"
-
-const app = new Hono({ strict: true }).basePath("/api")
-
-app.use(secureHeaders())
+const app = createApp()
 
 app.get("/status", ctx => {
   return ctx.json({
     status: "healthy"
   })
 })
-
-app.onError(onError)
-app.notFound(notFound)
 
 export default app
