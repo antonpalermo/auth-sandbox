@@ -1,11 +1,8 @@
 import { createApp } from "@workers/libs/create-app"
+import configureOpenAPI from "./libs/configure-open-api"
 
 const app = createApp()
 
-app.get("/status", ctx => {
-  return ctx.json({
-    status: "healthy"
-  })
-})
+configureOpenAPI(app)
 
 export default app

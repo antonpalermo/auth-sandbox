@@ -12,9 +12,12 @@
     "typegen": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
+    "@hono/zod-openapi": "^1.2.0",
+    "@scalar/hono-api-reference": "^0.9.30",
     "hono": "^4.11.1",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "zod": "^4.2.1"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.19.0",
