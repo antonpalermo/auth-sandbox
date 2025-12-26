@@ -11,7 +11,8 @@ export default defineConfig({
   plugins: [react(), cloudflare()],
   resolve: {
     alias: {
-      "@components": path.resolve(__dirname, "./www/components")
+      "@components": path.resolve(__dirname, "./www/components"),
+      "@workers": path.resolve(__dirname, "./workers")
     }
   }
 })

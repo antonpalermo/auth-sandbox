@@ -26,8 +26,9 @@
 
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["./www/components/*"]
+      "@components/*": ["./www/components/*"],
+      "@workers/*": ["./workers/*"]
     }
   },
-  "include": ["www"]
+  "include": ["www/**/*", "workers/**/*"]
 }
