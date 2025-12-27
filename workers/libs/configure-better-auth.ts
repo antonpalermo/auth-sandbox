@@ -17,6 +17,12 @@ function createAuth(env?: CloudflareBindings): ReturnType<typeof betterAuth> {
     database: drizzleAdapter(db, { provider: "pg", schema }),
     baseURL: env ? env.BETTER_AUTH_URL : "",
     secret: env ? env.BETTER_AUTH_SECRET : "",
+    socialProviders: {
+      google: {
+        clientId: env ? env.GOOGLE_OAUTH_CLIENT : "",
+        clientSecret: env ? env.GOOGLE_OAUTH_SECRET : ""
+      }
+    },
     plugins: [openAPI()]
   })
 }
