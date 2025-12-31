@@ -8,7 +8,16 @@ import { cloudflare } from "@cloudflare/vite-plugin"
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), cloudflare()],
+  plugins: [
+    react(),
+    cloudflare({
+      auxiliaryWorkers: [
+        {
+          configPath: "./api.wrangler.json"
+        }
+      ]
+    })
+  ],
   resolve: {
     alias: {
       "@components": path.resolve(__dirname, "./www/components"),
