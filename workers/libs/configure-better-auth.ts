@@ -4,7 +4,7 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle"
 
 import { drizzle } from "drizzle-orm/neon-serverless"
 
-import * as schema from "@workers/database/schema"
+import * as schema from "../../database/schema"
 import type { AppOpenAPI } from "@workers/libs/types"
 
 function createAuth(env: CloudflareBindings): ReturnType<typeof betterAuth> {

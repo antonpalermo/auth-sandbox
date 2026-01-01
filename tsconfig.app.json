@@ -30,5 +30,5 @@
       "@workers/*": ["./workers/*"]
     }
   },
-  "include": ["www/**/*", "workers/**/*"]
+  "include": ["www/**/*", "workers/**/*", "database/**/*"]
 }
