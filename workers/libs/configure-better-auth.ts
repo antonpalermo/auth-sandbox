@@ -7,20 +7,18 @@ import { drizzle } from "drizzle-orm/neon-serverless"
 import * as schema from "@workers/database/schema"
 import type { AppOpenAPI } from "@workers/libs/types"
 
-function createAuth(env?: CloudflareBindings): ReturnType<typeof betterAuth> {
-  const db = env
-    ? drizzle(env.DATABASE_URL!)
-    : drizzle(process.env.DATABASE_URL!)
+function createAuth(env: CloudflareBindings): ReturnType<typeof betterAuth> {
+  const db = drizzle(env.DATABASE_URL)
 
   return betterAuth({
     appName: "atomic",
     database: drizzleAdapter(db, { provider: "pg", schema }),
-    baseURL: env ? env.BETTER_AUTH_URL : "",
-    secret: env ? env.BETTER_AUTH_SECRET : "",
+    baseURL: env.BETTER_AUTH_URL,
+    secret: env.BETTER_AUTH_SECRET,
     socialProviders: {
       google: {
-        clientId: env ? env.GOOGLE_OAUTH_CLIENT : "",
-        clientSecret: env ? env.GOOGLE_OAUTH_SECRET : ""
+        clientId: env.GOOGLE_OAUTH_CLIENT,
+        clientSecret: env.GOOGLE_OAUTH_SECRET
       }
     },
     plugins: [openAPI()]
@@ -34,4 +32,8 @@ export default function configureBetterAuth(app: AppOpenAPI) {
 }
 
 // needed for schema generation
-export const auth = createAuth()
+export const auth = betterAuth({
+  database: drizzleAdapter(drizzle(process.env.DATABASE_URL!), {
+    provider: "pg"
+  })
+})
