@@ -11,11 +11,8 @@ export default defineConfig({
   plugins: [
     react(),
     cloudflare({
-      auxiliaryWorkers: [
-        {
-          configPath: "./api.wrangler.json"
-        }
-      ]
+      auxiliaryWorkers: [{ configPath: "./workers/api/wrangler.json" }],
+      configPath: "./wrangler.json"
     })
   ],
   resolve: {
