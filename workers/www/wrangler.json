@@ -1,7 +1,7 @@
 {
-  "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "auth-sandbox",
-  "main": "workers/index.ts",
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "atomic",
+  "main": "index.ts",
   "compatibility_date": "2025-11-17",
   "observability": {
     "enabled": true,
